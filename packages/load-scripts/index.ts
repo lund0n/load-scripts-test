@@ -18,7 +18,7 @@ export function loadDummy() {
     script.onerror = reject;
 
     script.src =
-      "https://gist.githubusercontent.com/lund0n/480973cd6e2226d3b2d19870b317f8d2/raw/0effb54372d6dd6abe9bad9820c3c4da6ec2016e/dummy.js";
+      "https://raw.githubusercontent.com/lund0n/load-scripts-test/main/dummy.js";
 
     document.head.appendChild(script);
   });
