@@ -1,15 +1,25 @@
-import { loadDummy } from "./index";
+import { loadDummy, loadFromEmbeddedScript } from "load-scripts";
 
 declare global {
   interface Window {
-    bar: string;
+    foo?: string;
   }
 }
 
 describe("loadDummy", () => {
-  it("loads the script and works", async () => {
-    const { client } = await loadDummy();
+  beforeEach(() => {
+    window.foo = undefined;
+  });
 
-    expect(client).toBeTruthy();
+  it("loads the script and works", async () => {
+    const result = await loadDummy();
+
+    expect(result).toBeTruthy();
+  });
+
+  it("loads the embedded script and works", async () => {
+    const result = await loadFromEmbeddedScript();
+
+    expect(result).toBeTruthy();
   });
 });
